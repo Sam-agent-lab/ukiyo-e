@@ -10,83 +10,89 @@
   </head>
   <body>
     <header class="hero" data-testid="hero">
-      <svg xmlns="http://www.w3.org/2000/svg" class="hero__art" data-testid="hero-art" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" role="presentation">
-        <rect width="1440" height="900" fill="var(--c-paper)"/>
-        <path d="M0 0h1440v168c-160 12-320-14-480-4s-320 24-480 10S160 150 0 166Z" fill="var(--c-prussian)" opacity=".14"/>
-        <path d="M0 162c160-14 320-2 480 10s320 0 480-10 320 16 480 4v168c-160 8-320-14-480-8s-320 24-480 12S160 312 0 326Z" fill="var(--c-indigo)" opacity=".16"/>
-        <path d="M0 322c160-14 320 2 480 14s320-4 480-12 320 16 480 8v154c-160 8-320-14-480-6s-320 26-480 14S160 466 0 478Z" fill="var(--c-ochre)" opacity=".2"/>
-        <circle cx="308" cy="392" r="78" fill="var(--c-ochre)" stroke="var(--c-ink)" stroke-width="1.2"/>
-        <path data-testid="mountain" d="M600 552 690 528c50-28 80-80 110-136 35-66 72-140 112-196 34 42 60 94 88 142 32 58 70 118 110 152 40 34 90 50 142 62 210 78 300 96 340 110L1440 900H600Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="1.4" stroke-linejoin="round"/>
-        <path d="M912 196c-26 38-50 80-72 122l32-14 18 22 22-22 22 24 22-24 26 14c-22-42-46-84-70-122Z" fill="var(--c-paper)"/>
-        <path d="M912 196c16 28 32 58 48 88l-24-10-12 20-12-16-14 18-14-20-16 10c16-30 30-60 44-90Z" fill="var(--c-prussian)" opacity=".55"/>
-        <g class="hero__birds" fill="none" stroke="var(--c-ink)" stroke-width="1.8" stroke-linecap="round" transform="translate(300 -46)">
-          <path d="M520 286c12-10 24-10 36 0 12-10 24-10 36 0"/>
-          <path d="M608 244c10-8 20-8 30 0 10-8 20-8 30 0"/>
-          <path d="M468 226c9-7 18-7 27 0 9-7 18-7 27 0"/>
-        </g>
-        <g data-testid="wave-layer-4">
-          <path d="M-40 542c120-16 210-32 310-20 110 14 180 44 290 42s180-30 290-34 180 26 290 28 200-24 340-32v404H-40Z" fill="var(--c-indigo)" opacity=".86" stroke="var(--c-ink)" stroke-width="1.4" stroke-linejoin="round"/>
-        </g>
-        <g data-testid="wave-layer-3">
-          <path d="M-40 596c120-30 230-54 350-36s190 56 310 50 200-44 320-50 200 30 320 28 160-18 220-26v338H-40Z" fill="var(--c-prussian)" stroke="var(--c-ink)" stroke-width="1.6" stroke-linejoin="round"/>
-        </g>
-        <g data-testid="wave-layer-2">
-          <path d="M-40 676c130-34 240-66 370-42 120 22 190 64 320 54 120-9 200-50 330-54 120-4 200 32 320 26 80-4 130-18 180-26v266H-40Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="1.8" stroke-linejoin="round"/>
-        </g>
-        <g data-testid="wave-layer-1">
-          <path d="M-40 900v-92c80-14 156-40 230-68 62-22 102-52 128-92 20-31 50-48 78-38 28 10 40 44 28 74-8 18-26 28-44 22 50-14 86-38 112-70 28 40 74 66 130 76 68 12 130-8 198-10 80-2 144 24 222 20 86-4 158-28 242-24 78 4 130 18 196 10v192Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="2" stroke-linejoin="round"/>
-        </g>
-        <g class="hero__spray" fill="none" stroke="var(--c-paper)" stroke-width="1.6" stroke-linecap="round" opacity=".82">
-          <path d="M366 664c20-14 34-32 40-54"/>
-          <path d="M344 690c18-8 32-20 42-36"/>
-          <path d="M412 696c18-12 30-28 36-48"/>
-          <path d="M480 654c10-12 18-26 22-42"/>
-          <path d="M520 650c8-12 14-26 16-40"/>
-          <path d="M596 700c12-10 22-22 28-36"/>
-          <path d="M1050 710c12-10 22-22 28-36"/>
-          <path d="M1092 704c12-10 22-22 28-36"/>
-        </g>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" class="hero__art hero__art--mobile" viewBox="0 0 390 844" preserveAspectRatio="xMidYMax slice" aria-hidden="true" role="presentation">
-  <rect width="390" height="844" fill="var(--c-paper)"/>
-  <defs>
-    <linearGradient id="sky-bokashi-m" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="560">
-      <stop offset="0" stop-color="var(--c-prussian)"/>
-      <stop offset="1" stop-color="var(--c-paper)"/>
-    </linearGradient>
-  </defs>
-  <path d="M0 0h390v170c-56 14-92 10-130-2s-72-18-110-6-90 26-150 10V0Z" fill="url(#sky-bokashi-m)" opacity=".18" stroke="none"/>
-  <circle cx="318" cy="168" r="54" fill="var(--c-ochre)" stroke="var(--c-ink)" stroke-width="1.2"/>
-  <path class="mountain" d="M-30 700C24 636 66 566 104 486c24-50 44-92 60-136 18 46 38 92 62 140 42 78 92 140 152 190L400 760H-30Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="1.4" stroke-linejoin="round"/>
-  <path d="M222 350c-16 26-31 54-46 82l16-10 12 12 15-12 12 12 14-11 13 12 14-7c-17-28-33-55-50-78Z" fill="var(--c-paper)"/>
-  <g class="hero__birds" fill="none" stroke="var(--c-ink)" stroke-width="1.7" stroke-linecap="round">
-    <path d="M232 196c6-5 13-5 19 0 6-5 13-5 19 0"/>
-    <path d="M282 166c5-4 11-4 16 0 5-4 11-4 16 0"/>
-  </g>
-  <g data-wave="4" class="wave-layer">
-    <path d="M-20 296c40-14 72-10 106 0 26 8 46 26 74 30 34 4 58-12 90-10 30 2 54 18 84 20 18 1 34-4 48-10v480H-20Z" fill="var(--c-indigo)" stroke="var(--c-ink)" stroke-width="1.3" stroke-linejoin="round"/>
-  </g>
-  <g data-wave="3" class="wave-layer">
-    <path d="M-20 520c46-16 86-22 126-6 34 14 56 40 92 44 34 4 60-14 94-16 30-2 56 10 78 20v236H-20Z" fill="var(--c-prussian)" stroke="var(--c-ink)" stroke-width="1.6" stroke-linejoin="round"/>
-  </g>
-  <g data-wave="2" class="wave-layer">
-    <path d="M-20 640c40-22 78-30 116-14 32 14 52 38 86 42 32 4 58-14 90-16 26-1 46 8 68 16v140H-20Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="1.8" stroke-linejoin="round"/>
-  </g>
-  <g data-wave="1" class="wave-layer" transform="translate(46 0)">
-    <path d="M-20 844V540c26-2 50-12 70-30 18-16 30-38 40-62 4 26 0 46-10 62 18-8 34-24 46-46 2 22-4 42-14 58 18-4 32-14 44-28-2 28-16 54-38 72-18 14-40 22-64 24 22 8 46 8 68 2 30-8 54-26 72-52 4 26-2 50-16 68 24-6 44-20 58-38-4 32-22 60-50 78-28 18-62 26-96 24-40-2-78-14-108-38-26-20-46-44-60-72Z" fill="var(--c-indigo)" stroke="var(--c-ink)" stroke-width="2.2" stroke-linejoin="round"/>
-    <path d="M-20 540c26-2 50-12 70-30 18-16 30-38 40-62 4 26 0 46-10 62 18-8 34-24 46-46 2 22-4 42-14 58 18-4 32-14 44-28-2 28-16 54-38 72-18 14-40 22-64 24" fill="none" stroke="var(--c-paper)" stroke-width="3.4" stroke-linecap="round"/>
-    <path d="M286 470c36 28 74 38 124 32v342H286Z" fill="var(--c-indigo)" stroke="var(--c-ink)" stroke-width="2.2" stroke-linejoin="round"/>
-    <path d="M96 520c10 6 18 14 24 24-12 0-22-4-30-12Z" fill="var(--c-paper)" stroke="var(--c-ink)" stroke-width="1.2"/>
-    <path d="M132 492c12 8 20 18 26 30-14-2-24-8-32-18Z" fill="var(--c-paper)" stroke="var(--c-ink)" stroke-width="1.2"/>
-    <path d="M168 466c12 8 22 20 28 32-14-4-26-10-34-20Z" fill="var(--c-paper)" stroke="var(--c-ink)" stroke-width="1.2"/>
-  </g>
-  <g class="hero__spray" fill="none" stroke="var(--c-paper)" stroke-width="1.4" stroke-linecap="round" opacity=".75">
-    <path d="M112 508c12-2 22-10 30-22"/>
-    <path d="M150 480c12-4 22-12 28-24"/>
-    <path d="M186 452c10-4 18-12 24-22"/>
-    <path d="M244 598c10-2 18-8 24-18"/>
-  </g>
-</svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="hero__art" viewBox="0 0 1440 900"
+ preserveAspectRatio="xMidYMax slice" aria-hidden="true" role="presentation">
+   <defs>
+     <linearGradient id="skyTop" x1="0" y1="0" x2="0" y2="1">
+       <stop offset="0" stop-color="var(--c-indigo-deep)" stop-opacity="0.9"/>
+       <stop offset="1" stop-color="var(--c-indigo)" stop-opacity="0.45"/>
+     </linearGradient>
+   </defs>
+   <!-- Cielo a bande piatte -->
+   <path d="M-40 -40 L1480 -40 L1480 620 C1100 600 400 600 -40 620 Z"
+ fill="var(--c-paper-warm)"/>
+   <path d="M-40 300 C300 280 560 330 760 318 C1000 304 1200 280 1480 300 L1480
+ 620 L-40 620 Z" fill="var(--c-paper)"/>
+   <path d="M-40 -40 L1480 -40 L1480 150 C1200 175 1000 130 760 155 C500 180
+ 250 135 -40 160 Z" fill="url(#skyTop)"/>
+   <!-- Sole -->
+   <circle cx="850" cy="400" r="42" fill="var(--c-vermilion)"
+ stroke="var(--c-ink)" stroke-width="1.2" stroke-linejoin="round"/>
+   <!-- Montagna -->
+   <path data-testid="mountain" d="M440 610 C540 520 630 380 690 288 C700 280
+ 708 282 716 292 C780 390 880 520 990 610 Z" fill="var(--c-indigo)"
+ stroke="var(--c-ink)" stroke-width="2" stroke-linejoin="round"/>
+   <path d="M690 288 C700 280 708 282 716 292 C735 330 755 350 770 370 L750 360
+ L737 388 L718 364 L701 398 L683 367 L665 385 L652 361 L640 364 C655 335 672
+ 310 690 288 Z" fill="var(--c-paper)" stroke="var(--c-ink)" stroke-width="1.4"
+ stroke-linejoin="round"/>
+   <path d="M668 340 C680 322 690 308 698 298 M726 322 C736 336 744 348 752
+ 358" fill="none" stroke="var(--c-indigo)" stroke-width="1.2"
+ stroke-linejoin="round"/>
+   <!-- layer 4: mare all'orizzonte -->
+   <g data-testid="wave-layer-4">
+     <path d="M-40 585 C200 568 400 582 600 566 C800 552 1000 580 1200 568
+ C1320 562 1400 572 1480 566 L1480 940 L-40 940 Z" fill="var(--c-indigo)"
+ stroke="var(--c-ink)" stroke-width="1.4" stroke-linejoin="round"/>
+     <path d="M300 600 C340 592 380 592 420 600 M1000 596 C1050 588 1100 588
+ 1150 596 M560 592 C600 586 640 586 680 592" fill="none"
+ stroke="var(--c-paper)" stroke-width="1.6" stroke-linejoin="round"
+ stroke-linecap="round"/>
+   </g>
+   <!-- layer 3: mare intermedio -->
+   <g data-testid="wave-layer-3">
+     <path d="M-40 640 C150 610 300 625 450 640 C560 652 640 632 760 628 C900
+ 624 1000 650 1160 638 C1280 628 1380 616 1480 630 L1480 940 L-40 940 Z"
+ fill="var(--c-prussian)" stroke="var(--c-ink)" stroke-width="1.6"
+ stroke-linejoin="round"/>
+     <path d="M120 650 C170 638 220 640 260 652 M980 656 C1040 640 1100 642
+ 1150 656 M1250 640 C1300 632 1340 634 1380 642 M780 640 C830 632 870 634 910
+ 644" fill="none" stroke="var(--c-paper)" stroke-width="1.8"
+ stroke-linejoin="round" stroke-linecap="round"/>
+   </g>
+   <!-- layer 2: onda protagonista -->
+   <g data-testid="wave-layer-2">
+     <path d="M-40 690 C200 680 380 692 490 674 C530 640 550 560 595 500 C625
+ 450 680 422 740 424 C800 426 846 460 868 500 L890 498 L880 516 L906 522 L886
+ 536 L904 552 L862 540 C830 520 780 508 745 520 C705 535 700 585 725 625 C750
+ 660 800 676 850 682 C1000 694 1200 686 1480 694 L1480 940 L-40 940 Z"
+ fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="2.4"
+ stroke-linejoin="round"/>
+     <path d="M612 505 C640 465 690 440 740 442 C790 444 828 470 846 505"
+ fill="none" stroke="var(--c-paper)" stroke-width="2.4" stroke-linejoin="round"
+ stroke-linecap="round"/>
+     <path d="M640 545 C665 505 705 474 748 474 C785 476 812 496 826 522"
+ fill="none" stroke="var(--c-paper)" stroke-width="2" stroke-linejoin="round"
+ stroke-linecap="round"/>
+     <path d="M575 600 C592 560 620 530 650 515 M520 650 C535 625 555 605 575
+ 590" fill="none" stroke="var(--c-paper)" stroke-width="1.8"
+ stroke-linejoin="round" stroke-linecap="round"/>
+     <g fill="var(--c-paper)">
+       <circle cx="900" cy="500" r="3"/><circle cx="915" cy="530"
+ r="3.5"/><circle cx="918" cy="560" r="2.6"/><circle cx="880" cy="470"
+ r="2.4"/><circle cx="930" cy="515" r="2"/>
+     </g>
+   </g>
+   <!-- layer 1: primo piano -->
+   <g data-testid="wave-layer-1">
+     <path d="M-40 810 C250 770 450 815 700 792 C950 770 1200 815 1480 780
+ L1480 940 L-40 940 Z" fill="var(--c-prussian)" stroke="var(--c-ink)"
+ stroke-width="2" stroke-linejoin="round"/>
+     <path d="M560 812 C600 800 650 800 690 812 M780 806 C830 794 880 796 920
+ 808 M200 800 C250 790 300 792 340 804" fill="none" stroke="var(--c-paper)"
+ stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+   </g>
+ </svg>
       <div class="hero__hanko" data-testid="hanko" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" role="presentation">
           <rect x="2" y="2" width="60" height="60" fill="var(--c-vermilion)"/>

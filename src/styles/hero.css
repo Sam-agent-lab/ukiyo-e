@@ -7,10 +7,6 @@
   isolation: isolate;
 }
 
-.hero__art--mobile {
-  display: none;
-}
-
 .hero__art {
   position: absolute;
   inset: 0;
@@ -60,16 +56,6 @@
   letter-spacing: 0.14em;
   line-height: 0.92;
   text-indent: 0.14em;
-}
-
-@media (width <= 640px) {
-  .hero__art--desktop {
-    display: none;
-  }
-
-  .hero__art--mobile {
-    display: block;
-  }
 }
 
 @media (width <= 480px) {
