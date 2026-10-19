@@ -4,8 +4,12 @@ if (!prefersReducedMotion) {
   const baseAmplitude = window.matchMedia('(pointer: coarse)').matches ? 60 : 120;
   const root = document.documentElement;
 
-  const layers = Array.from(document.querySelectorAll('[data-testid^="wave-layer"]')).map((element) => {
-    const match = element.getAttribute('data-testid').match(/(\d+)$/);
+  // Desktop e mobile hanno layer diversi: entrambi espongono il livello.
+  const layers = Array.from(
+    document.querySelectorAll('[data-testid^="wave-layer"], [data-wave]'),
+  ).map((element) => {
+    const raw = element.getAttribute('data-wave') || element.getAttribute('data-testid');
+    const match = raw.match(/(\d+)$/);
     const level = match ? Number(match[1]) : 1;
 
     return {

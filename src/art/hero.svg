@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="hero__art" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" role="presentation">
+<svg xmlns="http://www.w3.org/2000/svg" class="hero__art hero__art--desktop" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" role="presentation">
   <rect width="1440" height="900" fill="var(--c-paper)"/>
   <defs>
     <linearGradient id="sky-bokashi" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="700">
@@ -10,7 +10,7 @@
   <path d="M0 158C40 164 120 190 180 182C240 174 310 134 390 136C470 138 540 198 650 184C760 170 840 132 900 138C960 144 1060 176 1140 180C1220 184 1300 174 1440 150V332C1360 324 1320 302 1240 304C1160 306 1060 344 960 350C860 356 760 296 660 300C560 304 460 340 390 348C320 356 180 298 140 298C100 298 60 310 0 320Z" fill="var(--c-indigo)" opacity=".16" stroke="none"/>
   <path d="M0 320C60 310 100 298 140 298S320 356 390 348S560 304 660 300S860 356 960 350S1160 306 1240 304S1360 324 1440 332V470C1340 452 1220 468 1100 486C980 504 840 472 720 458C600 444 480 468 360 490C240 512 120 500 0 472Z" fill="var(--c-ochre)" opacity=".2" stroke="none"/>
   <circle cx="308" cy="392" r="78" fill="var(--c-ochre)" stroke="var(--c-ink)" stroke-width="1.2"/>
-  <path data-testid="mountain" d="M-60 790C70 762 200 744 330 708S520 652 610 604C650 584 675 556 690 528c50-28 80-80 110-136 35-66 72-140 112-196 34 42 60 94 88 142 32 58 70 118 110 152 40 34 90 50 142 62L1180 700L1330 742L1470 790L1470 940H-60Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="1.4" stroke-linejoin="round"/>
+  <path data-testid="mountain" d="M-60 790C70 762 200 744 330 708S520 652 610 604C650 584 675 556 690 528c50-28 80-80 110-136 35-66 72-140 112-196 34 42 60 94 88 142 32 58 70 118 110 152 40 34 90 50 142 62L1180 706C1260 726 1330 748 1440 776V940H-60V812C40 796 120 782 200 770 420 742 800 720 1180 706Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="1.4" stroke-linejoin="round"/>
   <path d="M912 196c-25.9 36.2-50.5 80-74.1 124.3l24.1-12.3 17 16 24-16 18 16 24-16 18 16 18-10 9.7 6c-25.7-42.7-48.9-87.2-78.7-124Z" fill="var(--c-paper)"/>
   <path d="M912 196c16 28 32 58 48 88l-24-10-12 20-12-16-14 18-14-20-16 10c16-30 30-60 44-90Z" fill="var(--c-prussian)" opacity=".55"/>
   <g class="hero__birds" fill="none" stroke="var(--c-ink)" stroke-width="2.1" stroke-linecap="round" transform="translate(40 -30)">
@@ -28,7 +28,11 @@
     <path d="M-40 676c130-34 240-66 370-42 120 22 190 64 320 54 120-9 200-50 330-54 120-4 200 32 320 26 80-4 130-18 180-26v266H-40Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="1.8" stroke-linejoin="round"/>
   </g>
   <g data-testid="wave-layer-1">
-    <path d="M-40 900v-92c80-14 156-40 230-68 62-22 102-52 128-92 20-31 50-48 78-38 28 10 40 44 28 74-8 18-26 28-44 22 50-14 86-38 112-70 28 40 74 66 130 76 68 12 130-8 198-10 80-2 144 24 222 20 86-4 158-28 242-24 78 4 130 18 196 10v192Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M-40 900V760c34-4 66-18 94-40 26-20 44-48 56-80 6 34 0 62-14 84 30-10 56-30 74-56 4 30-4 56-20 78 26-6 48-22 64-44-4 34-20 64-46 86-22 18-50 30-80 34 30 12 62 16 94 12 44-6 82-28 110-60 6 34-2 64-20 90 32-8 58-26 78-50-8 38-32 70-66 92-36 22-80 32-126 30-52-2-102-18-146-46-30-20-54-46-70-76Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M118 742c12 8 22 18 28 30-14 0-26-6-36-16Z" fill="var(--c-paper)" stroke="var(--c-ink)" stroke-width="1.3"/>
+    <path d="M164 712c14 10 24 22 30 36-16-2-28-8-38-20Z" fill="var(--c-paper)" stroke="var(--c-ink)" stroke-width="1.3"/>
+    <path d="M210 682c14 10 26 24 32 38-16-4-30-12-40-24Z" fill="var(--c-paper)" stroke="var(--c-ink)" stroke-width="1.3"/>
+    <path d="M-40 796c80-10 160-26 240-46 90-22 170-40 260-40 120 0 220 34 320 44 120 12 240 6 360-16 60-11 120-26 180-44v206Z" fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="2" stroke-linejoin="round"/>
   </g>
   <g class="hero__spray" fill="none" stroke="var(--c-paper)" stroke-width="1.6" stroke-linecap="round" opacity=".6">
     <path d="M240 554c16-3 30-13 40-28"/>

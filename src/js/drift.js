@@ -51,7 +51,9 @@ if (!prefersReducedMotion) {
   });
 
   layer.append(...items);
-  document.body.append(layer);
+  // I petali restano dentro l'hero: non devono coprire titoli e poesie.
+  const host = document.querySelector('[data-testid="hero"]') || document.body;
+  host.append(layer);
 
   const observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {

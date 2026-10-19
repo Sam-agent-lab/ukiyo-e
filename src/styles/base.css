@@ -59,6 +59,7 @@ footer {
 }
 
 footer a {
+  display: inline-block;
   color: var(--c-indigo);
   font-weight: 600;
   text-underline-offset: 2px;

@@ -3,7 +3,7 @@
 }
 
 [data-testid="drift-layer"] {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 1;
   overflow: hidden;
