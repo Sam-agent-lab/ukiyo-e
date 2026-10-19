@@ -1,0 +1,119 @@
+.section {
+  --mood-1: var(--c-indigo);
+  --mood-2: var(--c-ochre);
+  --section-bg: var(--c-paper);
+  --section-fg: var(--c-ink);
+
+  display: grid;
+  grid-template-areas: "poem aside";
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2.5rem clamp(2rem, 6vw, 6rem);
+  align-items: start;
+  padding-block: 18vh;
+  padding-inline: clamp(1.5rem, 7vw, 7rem);
+  overflow: clip;
+  color: var(--section-fg);
+  background-color: var(--section-bg);
+  background-image:
+    radial-gradient(
+      ellipse at 82% 16%,
+      color-mix(in srgb, var(--mood-1) 68%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse at 12% 88%,
+      color-mix(in srgb, var(--mood-2) 52%, transparent),
+      transparent 60%
+    );
+}
+
+.section--nami {
+  --mood-1: var(--c-prussian);
+  --mood-2: var(--c-indigo-deep);
+  --section-bg: var(--c-indigo-deep);
+  --section-fg: var(--c-paper);
+}
+
+.section--yama {
+  --mood-1: var(--c-indigo);
+  --mood-2: var(--c-ochre);
+  --section-bg: var(--c-paper-warm);
+  --section-fg: var(--c-ink);
+}
+
+.section--tsuki {
+  --mood-1: var(--c-indigo-deep);
+  --mood-2: var(--c-vermilion);
+  --section-bg: var(--c-indigo-deep);
+  --section-fg: var(--c-paper);
+}
+
+.section__aside {
+  display: flex;
+  grid-area: aside;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-end;
+  justify-self: end;
+}
+
+.section h2[data-testid^="title-"] {
+  inline-size: var(--col-title);
+  min-height: 10rem;
+  margin: 0;
+  font-family: var(--font-jp);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: inherit;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  align-self: start;
+}
+
+.section__romaji {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-variant-caps: all-small-caps;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-align: right;
+  white-space: nowrap;
+  opacity: 0.7;
+  writing-mode: horizontal-tb;
+}
+
+.section__poem {
+  max-inline-size: 34ch;
+  margin: 0;
+  grid-area: poem;
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--c-ink);
+  white-space: pre-line;
+  text-wrap: pretty;
+}
+
+.section--nami .section__poem,
+.section--tsuki .section__poem {
+  color: var(--c-paper);
+}
+
+@media (width <= 480px) {
+  .section {
+    --col-title: 2.6rem;
+
+    grid-template-areas:
+      "aside"
+      "poem";
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 3rem;
+  }
+
+  .section__poem {
+    width: 100%;
+    max-inline-size: none;
+  }
+}
