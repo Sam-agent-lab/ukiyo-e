@@ -1,0 +1,79 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--c-paper);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body > header,
+body > main,
+body > footer {
+  position: relative;
+}
+
+body {
+  margin: 0;
+  background-color: var(--c-paper);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+footer {
+  background-color: var(--c-paper);
+  padding: 3rem clamp(1.5rem, 7vw, 7rem) 4.5rem;
+  font-size: 0.85rem;
+  color: var(--c-indigo-deep);
+}
+
+footer a {
+  display: inline-block;
+  color: var(--c-indigo);
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+
+footer a:hover {
+  color: var(--c-vermilion);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+  }
+}

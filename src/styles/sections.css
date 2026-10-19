@@ -1,0 +1,168 @@
+:root {
+  --col-aside: 9.5rem;
+}
+
+.section {
+  --mood-1: var(--c-indigo);
+  --mood-2: var(--c-ochre);
+  --section-bg: var(--c-paper);
+  --section-fg: var(--c-ink);
+
+  display: grid;
+  grid-template-areas: "poem aside";
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2.5rem clamp(2rem, 6vw, 6rem);
+  align-items: start;
+  padding-block: 18svh;
+  padding-inline: clamp(1.5rem, 7vw, 7rem);
+  overflow: clip;
+  color: var(--section-fg);
+  background-color: var(--section-bg);
+  background-image:
+    radial-gradient(
+      ellipse at 82% 16%,
+      color-mix(in srgb, var(--mood-1) 68%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse at 12% 88%,
+      color-mix(in srgb, var(--mood-2) 52%, transparent),
+      transparent 60%
+    );
+}
+
+.section--nami {
+  --mood-1: var(--c-prussian);
+  --mood-2: var(--c-indigo-deep);
+  --section-bg: var(--c-indigo-deep);
+  --section-fg: var(--c-paper);
+}
+
+.section--yama {
+  --mood-1: var(--c-indigo);
+  --mood-2: var(--c-ochre);
+  --section-bg: var(--c-paper-warm);
+  --section-fg: var(--c-ink);
+
+  /* Bande piatte, stile stampa a blocchi: nessuna sfumatura. */
+  background-image: linear-gradient(
+    180deg,
+    var(--c-paper-warm) 0 34%,
+    color-mix(in srgb, var(--c-ochre) 34%, var(--c-paper-warm)) 34% 62%,
+    color-mix(in srgb, var(--c-indigo) 30%, var(--c-paper-warm)) 62% 100%
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.section--yama h2[data-testid^="title-"] {
+  color: var(--c-indigo-deep);
+}
+
+.section + .section {
+  border-block-start: 1px solid color-mix(in srgb, var(--c-ink) 45%, transparent);
+}
+
+.section--tsuki {
+  --mood-1: var(--c-indigo-deep);
+  --mood-2: var(--c-vermilion);
+  --section-bg: var(--c-indigo-deep);
+  --section-fg: var(--c-paper);
+}
+
+.section__aside {
+  display: flex;
+  grid-area: aside;
+  flex-flow: row-reverse wrap;
+  gap: 0.9rem 1.1rem;
+  inline-size: var(--col-aside);
+  align-items: flex-start;
+  justify-content: flex-end;
+  justify-self: end;
+}
+
+.section__aside .section__romaji {
+  flex-basis: 100%;
+}
+
+.section h2[data-testid^="title-"] {
+  inline-size: var(--col-title);
+  min-height: 10rem;
+  margin: 0;
+  font-family: var(--font-jp);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: inherit;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  align-self: start;
+}
+
+.section__poem-jp {
+  margin: 0;
+  font-family: var(--font-jp);
+  font-size: clamp(0.9rem, 1.7vw, 1.05rem);
+  line-height: 1.9;
+  letter-spacing: 0.12em;
+  color: inherit;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.section__romaji {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-variant-caps: all-small-caps;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-align: right;
+  white-space: nowrap;
+  color: inherit;
+  opacity: 1;
+  writing-mode: horizontal-tb;
+}
+
+.section--yama .section__romaji {
+  color: var(--c-indigo-deep);
+}
+
+.section__poem {
+  max-inline-size: 34ch;
+  margin: 0;
+  grid-area: poem;
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--c-ink);
+  white-space: pre-line;
+  text-wrap: pretty;
+}
+
+.section--nami .section__poem,
+.section--tsuki .section__poem {
+  color: var(--c-paper);
+}
+
+@media (width <= 480px) {
+  :root {
+    --col-aside: 100%;
+  }
+
+  .section {
+    --col-title: 2.6rem;
+
+    padding-block: 9svh;
+    grid-template-areas:
+      "aside"
+      "poem";
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 3rem;
+  }
+
+  .section__poem {
+    width: 100%;
+    max-inline-size: none;
+  }
+}

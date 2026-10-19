@@ -1,0 +1,39 @@
+:root {
+  --c-indigo-night: #10182b;
+}
+
+.dusk {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-color: var(--c-indigo-night);
+  mix-blend-mode: multiply;
+  opacity: calc(var(--progress) * 0.55);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-testid^="wave-layer"] {
+    will-change: transform;
+  }
+}
+
+body > main {
+  z-index: auto;
+}
+
+body > header,
+body > footer {
+  z-index: 2;
+}
+
+.section > * {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dusk {
+    opacity: 0.25;
+  }
+}

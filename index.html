@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ukiyo-e: colori, carta e poesia del Giappone tradizionale.">
+    <title>Ukiyo-e</title>
+    <link rel="preload" href="/fonts/shippori-mincho-subset.woff2" as="font" type="font/woff2" crossorigin>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <header class="hero" data-testid="hero">
+      <svg xmlns="http://www.w3.org/2000/svg" class="hero__art" viewBox="0 0 1440 900"
+ preserveAspectRatio="xMidYMax slice" aria-hidden="true" role="presentation">
+   <defs>
+     <linearGradient id="skyTop" x1="0" y1="0" x2="0" y2="1">
+       <stop offset="0" stop-color="var(--c-indigo-deep)" stop-opacity="0.9"/>
+       <stop offset="1" stop-color="var(--c-indigo)" stop-opacity="0.45"/>
+     </linearGradient>
+   </defs>
+   <!-- Cielo a bande piatte -->
+   <path d="M-40 -40 L1480 -40 L1480 620 C1100 600 400 600 -40 620 Z"
+ fill="var(--c-paper-warm)"/>
+   <path d="M-40 300 C300 280 560 330 760 318 C1000 304 1200 280 1480 300 L1480
+ 620 L-40 620 Z" fill="var(--c-paper)"/>
+   <path d="M-40 -40 L1480 -40 L1480 150 C1200 175 1000 130 760 155 C500 180
+ 250 135 -40 160 Z" fill="url(#skyTop)"/>
+   <!-- Sole -->
+   <circle cx="850" cy="400" r="42" fill="var(--c-vermilion)"
+ stroke="var(--c-ink)" stroke-width="1.2" stroke-linejoin="round"/>
+   <!-- Montagna -->
+   <path data-testid="mountain" d="M440 610 C540 520 630 380 690 288 C700 280
+ 708 282 716 292 C780 390 880 520 990 610 Z" fill="var(--c-indigo)"
+ stroke="var(--c-ink)" stroke-width="2" stroke-linejoin="round"/>
+   <path d="M690 288 C700 280 708 282 716 292 C735 330 755 350 770 370 L750 360
+ L737 388 L718 364 L701 398 L683 367 L665 385 L652 361 L640 364 C655 335 672
+ 310 690 288 Z" fill="var(--c-paper)" stroke="var(--c-ink)" stroke-width="1.4"
+ stroke-linejoin="round"/>
+   <path d="M668 340 C680 322 690 308 698 298 M726 322 C736 336 744 348 752
+ 358" fill="none" stroke="var(--c-indigo)" stroke-width="1.2"
+ stroke-linejoin="round"/>
+   <!-- layer 4: mare all'orizzonte -->
+   <g data-testid="wave-layer-4">
+     <path d="M-40 585 C200 568 400 582 600 566 C800 552 1000 580 1200 568
+ C1320 562 1400 572 1480 566 L1480 940 L-40 940 Z" fill="var(--c-indigo)"
+ stroke="var(--c-ink)" stroke-width="1.4" stroke-linejoin="round"/>
+     <path d="M300 600 C340 592 380 592 420 600 M1000 596 C1050 588 1100 588
+ 1150 596 M560 592 C600 586 640 586 680 592" fill="none"
+ stroke="var(--c-paper)" stroke-width="1.6" stroke-linejoin="round"
+ stroke-linecap="round"/>
+   </g>
+   <!-- layer 3: mare intermedio -->
+   <g data-testid="wave-layer-3">
+     <path d="M-40 640 C150 610 300 625 450 640 C560 652 640 632 760 628 C900
+ 624 1000 650 1160 638 C1280 628 1380 616 1480 630 L1480 940 L-40 940 Z"
+ fill="var(--c-prussian)" stroke="var(--c-ink)" stroke-width="1.6"
+ stroke-linejoin="round"/>
+     <path d="M120 650 C170 638 220 640 260 652 M980 656 C1040 640 1100 642
+ 1150 656 M1250 640 C1300 632 1340 634 1380 642 M780 640 C830 632 870 634 910
+ 644" fill="none" stroke="var(--c-paper)" stroke-width="1.8"
+ stroke-linejoin="round" stroke-linecap="round"/>
+   </g>
+   <!-- layer 2: onda protagonista -->
+   <g data-testid="wave-layer-2">
+     <path d="M-40 690 C200 680 380 692 490 674 C530 640 550 560 595 500 C625
+ 450 680 422 740 424 C800 426 846 460 868 500 L890 498 L880 516 L906 522 L886
+ 536 L904 552 L862 540 C830 520 780 508 745 520 C705 535 700 585 725 625 C750
+ 660 800 676 850 682 C1000 694 1200 686 1480 694 L1480 940 L-40 940 Z"
+ fill="var(--c-indigo-deep)" stroke="var(--c-ink)" stroke-width="2.4"
+ stroke-linejoin="round"/>
+     <path d="M612 505 C640 465 690 440 740 442 C790 444 828 470 846 505"
+ fill="none" stroke="var(--c-paper)" stroke-width="2.4" stroke-linejoin="round"
+ stroke-linecap="round"/>
+     <path d="M640 545 C665 505 705 474 748 474 C785 476 812 496 826 522"
+ fill="none" stroke="var(--c-paper)" stroke-width="2" stroke-linejoin="round"
+ stroke-linecap="round"/>
+     <path d="M575 600 C592 560 620 530 650 515 M520 650 C535 625 555 605 575
+ 590" fill="none" stroke="var(--c-paper)" stroke-width="1.8"
+ stroke-linejoin="round" stroke-linecap="round"/>
+     <g fill="var(--c-paper)">
+       <circle cx="900" cy="500" r="3"/><circle cx="915" cy="530"
+ r="3.5"/><circle cx="918" cy="560" r="2.6"/><circle cx="880" cy="470"
+ r="2.4"/><circle cx="930" cy="515" r="2"/>
+     </g>
+   </g>
+   <!-- layer 1: primo piano -->
+   <g data-testid="wave-layer-1">
+     <path d="M-40 810 C250 770 450 815 700 792 C950 770 1200 815 1480 780
+ L1480 940 L-40 940 Z" fill="var(--c-prussian)" stroke="var(--c-ink)"
+ stroke-width="2" stroke-linejoin="round"/>
+     <path d="M560 812 C600 800 650 800 690 812 M780 806 C830 794 880 796 920
+ 808 M200 800 C250 790 300 792 340 804" fill="none" stroke="var(--c-paper)"
+ stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+   </g>
+ </svg>
+      <div class="hero__hanko" data-testid="hanko" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" role="presentation">
+          <rect x="2" y="2" width="60" height="60" fill="var(--c-vermilion)"/>
+          <rect x="9" y="9" width="46" height="46" fill="var(--c-paper)"/>
+          <g fill="var(--c-vermilion)">
+            <rect x="15" y="13" width="8" height="38"/>
+            <rect x="15" y="13" width="35" height="7"/>
+            <rect x="31" y="25" width="19" height="6"/>
+            <rect x="31" y="36" width="8" height="15"/>
+            <rect x="43" y="36" width="7" height="15"/>
+            <rect x="31" y="42" width="19" height="5"/>
+          </g>
+          <rect x="33" y="15" width="5" height="3" fill="var(--c-paper)"/>
+          <rect x="45" y="27" width="3" height="2" fill="var(--c-paper)"/>
+        </svg>
+      </div>
+      <h1>Ukiyo-e</h1>
+    </header>
+    <main>
+      <section class="section section--nami" data-testid="section-nami">
+        <div class="section__aside">
+          <h2 data-testid="title-nami" lang="ja">波</h2>
+          <p class="section__poem-jp" lang="ja">石を数えて、忘れて、また始める</p>
+          <p class="section__romaji">Nami · onde</p>
+        </div>
+        <p class="section__poem" data-testid="poem-nami">L'onda conta le pietre,
+poi le dimentica
+e ricomincia.</p>
+      </section>
+      <section class="section section--yama" data-testid="section-yama">
+        <div class="section__aside">
+          <h2 data-testid="title-yama" lang="ja">山</h2>
+          <p class="section__poem-jp" lang="ja">登る者を見ず、空を支える</p>
+          <p class="section__romaji">Yama · montagna</p>
+        </div>
+        <p class="section__poem" data-testid="poem-yama">La montagna non guarda
+chi sale: tiene il cielo
+fermo sopra di sé.</p>
+      </section>
+      <section class="section section--tsuki" data-testid="section-tsuki">
+        <div class="section__aside">
+          <h2 data-testid="title-tsuki" lang="ja">月</h2>
+          <p class="section__poem-jp" lang="ja">今宵も、わが名を知らぬ</p>
+          <p class="section__romaji">Tsuki · luna</p>
+        </div>
+        <p class="section__poem" data-testid="poem-tsuki">La luna piena anche stasera
+non ha imparato
+il mio nome.</p>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Font: Shippori Mincho e EB Garamond, distribuiti con licenza SIL Open Font License 1.1.
+        <a href="/fonts/OFL-shippori.txt">Licenza Shippori Mincho</a> ·
+        <a href="/fonts/OFL-ebgaramond.txt">Licenza EB Garamond</a>
+      </p>
+    </footer>
+    <div class="dusk" data-testid="dusk-overlay" aria-hidden="true"></div>
+  </body>
+</html>

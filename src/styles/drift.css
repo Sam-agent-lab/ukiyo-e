@@ -1,0 +1,83 @@
+:root {
+  --c-petal-pink: #dfa6a4;
+}
+
+[data-testid="drift-layer"] {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.drift__item {
+  position: absolute;
+  top: 0;
+  left: var(--drift-left);
+  opacity: var(--drift-opacity);
+  animation-name: drift-fall;
+  animation-duration: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+  will-change: transform, opacity;
+}
+
+.drift__petal {
+  width: 14px;
+  height: 14px;
+  color: var(--c-vermilion);
+}
+
+.drift__petal--pink {
+  color: var(--c-petal-pink);
+}
+
+.drift__petal svg {
+  width: 14px;
+  height: 14px;
+  fill: currentcolor;
+}
+
+.drift__drop {
+  width: var(--drift-size);
+  height: var(--drift-size);
+  background-color: var(--c-indigo);
+  border-radius: 46% 54% 58% 42% / 52% 44% 56% 48%;
+}
+
+@keyframes drift-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -14vh, 0) rotate(0deg);
+  }
+
+  10% {
+    opacity: var(--drift-opacity);
+  }
+
+  50% {
+    transform: translate3d(var(--drift-sway), 48vh, 0) rotate(calc(var(--drift-spin) * 0.5));
+  }
+
+  90% {
+    opacity: var(--drift-opacity);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift-sway-end), 112vh, 0) rotate(var(--drift-spin));
+  }
+}
+
+@media (pointer: coarse) {
+  [data-testid="drift-layer"] > :nth-child(n + 9) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-testid="drift-layer"] {
+    display: none;
+  }
+}
