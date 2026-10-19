@@ -52,6 +52,7 @@ svg {
 }
 
 footer {
+  background-color: var(--c-paper);
   padding: 3rem clamp(1.5rem, 7vw, 7rem) 4.5rem;
   font-size: 0.85rem;
   color: var(--c-indigo-deep);

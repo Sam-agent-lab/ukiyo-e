@@ -159,12 +159,13 @@ test('--progress resta basso in cima e sale oltre 0.9 in fondo', async ({ page }
 
   const readProgress = () =>
     page.evaluate(() => {
-      return Number(getComputedStyle(document.documentElement).getPropertyValue('--progress'));
+      return getComputedStyle(document.documentElement).getPropertyValue('--progress').trim();
     });
 
-  const top = await readProgress();
+  const topRaw = await readProgress();
 
-  expect(top).toBeLessThan(0.05);
+  expect(topRaw).not.toBe('');
+  expect(Number(topRaw)).toBeLessThan(0.05);
 
   await page.evaluate(() => {
     window.scrollTo(0, document.documentElement.scrollHeight);
@@ -178,9 +179,10 @@ test('--progress resta basso in cima e sale oltre 0.9 in fondo', async ({ page }
     return progress > 0.9;
   });
 
-  const bottom = await readProgress();
+  const bottomRaw = await readProgress();
 
-  expect(bottom).toBeGreaterThan(0.9);
+  expect(bottomRaw).not.toBe('');
+  expect(Number(bottomRaw)).toBeGreaterThan(0.9);
 });
 
 test('i font sono serviti solo dal dominio locale', async ({ page }) => {
@@ -211,7 +213,9 @@ test('i due font sono disponibili', async ({ page }) => {
   expect(checks.garamond).toBe(true);
 });
 
-test('il peso totale delle risposte resta sotto 1.5 MB', async ({ page }) => {
+test('il peso totale delle risposte resta dentro il budget reale', async ({ page }) => {
+  // Budget del progetto 1,5 MB; la pagina pesa ~49 KB, quindi la soglia stretta
+  // e' 200 KB: cattura una regressione prima che il budget vero venga intaccato.
   const { responses } = await openPage(page);
 
   const sizes = await Promise.all(
@@ -228,7 +232,7 @@ test('il peso totale delle risposte resta sotto 1.5 MB', async ({ page }) => {
 
   const total = sizes.reduce((sum, size) => sum + size, 0);
 
-  expect(total).toBeLessThan(1_500_000);
+  expect(total).toBeLessThan(200_000);
 });
 
 test('non vengono richieste immagini raster', async ({ page }) => {
@@ -236,7 +240,7 @@ test('non vengono richieste immagini raster', async ({ page }) => {
 
   const rasterUrls = responses
     .map((response) => new URL(response.url()).pathname)
-    .filter((pathname) => /\.(png|jpe?g|webp)$/i.test(pathname));
+    .filter((pathname) => /\.(png|jpe?g|webp|avif|gif)$/i.test(pathname));
 
   expect(rasterUrls).toEqual([]);
 });

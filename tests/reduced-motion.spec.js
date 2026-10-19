@@ -36,6 +36,9 @@ test.describe('prefers-reduced-motion', () => {
     });
 
     await page.waitForFunction(() => window.scrollY > 0);
+    await page.evaluate(
+      () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+    );
 
     const afterScroll = await readTransforms();
 
@@ -46,12 +49,11 @@ test.describe('prefers-reduced-motion', () => {
     await page.goto('/');
 
     const drift = page.getByTestId('drift-layer');
-    const count = await drift.count();
 
-    if (count === 0) {
-      expect(count).toBe(0);
-    } else {
-      await expect(drift).toBeHidden();
+    // Il layer o non viene creato affatto, oppure esiste con display: none.
+    expect(await drift.count()).toBeLessThanOrEqual(1);
+    if ((await drift.count()) === 1) {
+      await expect(drift.first()).toBeHidden();
     }
   });
 });

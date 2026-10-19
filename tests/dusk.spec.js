@@ -29,20 +29,25 @@ test('a fine pagina il footer resta sopra il velo e leggibile', async ({ page })
   await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
   await page.waitForTimeout(400);
 
+  // Il contrasto si misura contro lo sfondo REALE del footer: al 100% di scroll
+  // il velo dusk e' sopra lo sfondo della pagina, quindi il footer deve avere
+  // un fondo proprio opaco per restare leggibile.
   const style = await page.evaluate(() => {
     const footer = document.querySelector('footer');
     const c = getComputedStyle(footer);
-    const paper = getComputedStyle(document.documentElement).getPropertyValue('--c-paper').trim();
-    const probe = document.createElement('span');
-    probe.style.color = paper;
-    document.body.appendChild(probe);
-    const paperRgb = getComputedStyle(probe).color;
-    probe.remove();
-    return { position: c.position, color: c.color, paperRgb };
+    const dusk = getComputedStyle(document.querySelector('[data-testid=dusk-overlay]'));
+    return {
+      position: c.position,
+      color: c.color,
+      background: c.backgroundColor,
+      duskOpacity: Number(dusk.opacity),
+    };
   });
 
   expect(style.position).toBe('relative');
-  expect(ratio(parse(style.color), parse(style.paperRgb))).toBeGreaterThan(6);
+  expect(style.background).not.toBe('rgba(0, 0, 0, 0)');
+  expect(style.duskOpacity).toBeGreaterThan(0.4);
+  expect(ratio(parse(style.color), parse(style.background))).toBeGreaterThan(6);
 });
 
 test('lo scroll aggiorna la progressione senza superare 1', async ({ page }) => {
