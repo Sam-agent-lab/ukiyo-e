@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ukiyo-e: colori, carta e poesia del Giappone tradizionale.">
+    <title>Ukiyo-e</title>
+    <link rel="preload" href="/fonts/shippori-mincho-subset.woff2" as="font" type="font/woff2" crossorigin>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <header data-testid="hero">
+      <div class="logo" data-testid="hanko" aria-hidden="true"></div>
+      <h1>Ukiyo-e</h1>
+    </header>
+    <main>
+      <section data-testid="section-nami">
+        <h2 data-testid="title-nami" lang="ja">波</h2>
+        <!-- TODO: poesia -->
+        <p data-testid="poem-nami"></p>
+      </section>
+      <section data-testid="section-yama">
+        <h2 data-testid="title-yama" lang="ja">山</h2>
+        <!-- TODO: poesia -->
+        <p data-testid="poem-yama"></p>
+      </section>
+      <section data-testid="section-tsuki">
+        <h2 data-testid="title-tsuki" lang="ja">月</h2>
+        <!-- TODO: poesia -->
+        <p data-testid="poem-tsuki"></p>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Font: Shippori Mincho e EB Garamond, distribuiti con licenza SIL Open Font License 1.1.
+        <a href="/fonts/OFL-shippori.txt">Licenza Shippori Mincho</a> ·
+        <a href="/fonts/OFL-ebgaramond.txt">Licenza EB Garamond</a>
+      </p>
+    </footer>
+  </body>
+</html>

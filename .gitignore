@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.venv/
+fonts-src/
+*.log
+test-results/
+playwright-report/
+shots/
