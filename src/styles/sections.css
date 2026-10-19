@@ -1,3 +1,7 @@
+:root {
+  --col-aside: 9.5rem;
+}
+
 .section {
   --mood-1: var(--c-indigo);
   --mood-2: var(--c-ochre);
@@ -39,6 +43,18 @@
   --mood-2: var(--c-ochre);
   --section-bg: var(--c-paper-warm);
   --section-fg: var(--c-ink);
+
+  background-size: 70% 100%, 70% 100%;
+  background-position: left top, left bottom;
+  background-repeat: no-repeat;
+}
+
+.section--yama h2[data-testid^="title-"] {
+  color: var(--c-indigo-deep);
+}
+
+.section + .section {
+  border-block-start: 1px solid color-mix(in srgb, var(--c-ink) 45%, transparent);
 }
 
 .section--tsuki {
@@ -53,6 +69,7 @@
   grid-area: aside;
   flex-direction: column;
   gap: 1rem;
+  inline-size: var(--col-aside);
   align-items: flex-end;
   justify-self: end;
 }
@@ -74,13 +91,14 @@
 
 .section__romaji {
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-variant-caps: all-small-caps;
   line-height: 1.4;
   letter-spacing: 0.2em;
   text-align: right;
   white-space: nowrap;
-  opacity: 0.7;
+  color: inherit;
+  opacity: 0.95;
   writing-mode: horizontal-tb;
 }
 
@@ -102,6 +120,10 @@
 }
 
 @media (width <= 480px) {
+  :root {
+    --col-aside: 4.5rem;
+  }
+
   .section {
     --col-title: 2.6rem;
 

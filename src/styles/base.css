@@ -45,6 +45,21 @@ svg {
   border: 0;
 }
 
+footer {
+  padding: 3rem clamp(1.5rem, 7vw, 7rem) 4.5rem;
+  font-size: 0.85rem;
+  color: var(--c-ink);
+}
+
+footer a {
+  color: var(--c-vermilion);
+  text-underline-offset: 2px;
+}
+
+footer a:hover {
+  color: var(--c-indigo-deep);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
