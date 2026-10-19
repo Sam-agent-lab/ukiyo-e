@@ -14,7 +14,16 @@ const ratio = (a, b) => {
   return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
 };
 
-const parse = (value) => value.match(/\d+/g).slice(0, 3).map(Number);
+// Solo rgb()/rgba(): un colore in oklch() o color() verrebbe letto male dalla regex.
+const parse = (value, label) => {
+  expect(value, `${label} deve essere in formato rgb/rgba, trovato: ${value}`).toMatch(/^rgba?\(/);
+  return value.match(/[\d.]+/g).slice(0, 3).map(Number);
+};
+
+const alphaOf = (value) => {
+  const parts = value.match(/[\d.]+/g);
+  return parts.length === 4 ? Number(parts[3]) : 1;
+};
 
 test('senza JS il velo crepuscolo resta a zero', async ({ browser }) => {
   const ctx = await browser.newContext({ javaScriptEnabled: false });
@@ -24,39 +33,52 @@ test('senza JS il velo crepuscolo resta a zero', async ({ browser }) => {
   await ctx.close();
 });
 
-test('a fine pagina il footer resta sopra il velo e leggibile', async ({ page }) => {
+test('a fine pagina il footer sta sopra il velo e ha un fondo opaco', async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-  await page.waitForTimeout(400);
 
-  // Il contrasto si misura contro lo sfondo REALE del footer: al 100% di scroll
-  // il velo dusk e' sopra lo sfondo della pagina, quindi il footer deve avere
-  // un fondo proprio opaco per restare leggibile.
+  // Attesa sullo stato reale, non su un timeout.
+  await page.waitForFunction(() => {
+    const dusk = document.querySelector('[data-testid=dusk-overlay]');
+    return Number(getComputedStyle(dusk).opacity) > 0.4;
+  });
+
   const style = await page.evaluate(() => {
     const footer = document.querySelector('footer');
+    const dusk = document.querySelector('[data-testid=dusk-overlay]');
     const c = getComputedStyle(footer);
-    const dusk = getComputedStyle(document.querySelector('[data-testid=dusk-overlay]'));
     return {
       position: c.position,
+      zIndex: Number(c.zIndex),
       color: c.color,
       background: c.backgroundColor,
-      duskOpacity: Number(dusk.opacity),
+      duskZIndex: Number(getComputedStyle(dusk).zIndex),
+      duskOpacity: Number(getComputedStyle(dusk).opacity),
     };
   });
 
   expect(style.position).toBe('relative');
-  expect(style.background).not.toBe('rgba(0, 0, 0, 0)');
+  expect(Number.isFinite(style.zIndex)).toBe(true);
+  expect(style.zIndex).toBeGreaterThan(style.duskZIndex);
   expect(style.duskOpacity).toBeGreaterThan(0.4);
-  expect(ratio(parse(style.color), parse(style.background))).toBeGreaterThan(6);
+
+  // Il fondo deve essere opaco: un rgba con alpha < 1 lascerebbe passare il velo.
+  expect(alphaOf(style.background)).toBe(1);
+  expect(ratio(parse(style.color, 'colore footer'), parse(style.background, 'fondo footer'))).toBeGreaterThan(6);
 });
 
 test('lo scroll aggiorna la progressione senza superare 1', async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.scrollTo(0, 10 ** 6));
-  await page.waitForTimeout(400);
-  const progress = await page.evaluate(() =>
-    Number(getComputedStyle(document.documentElement).getPropertyValue('--progress')),
+
+  await page.waitForFunction(
+    () => Number(getComputedStyle(document.documentElement).getPropertyValue('--progress')) > 0.9,
   );
+
+  const progress = await page.evaluate(() =>
+    Number(getComputedStyle(document.documentElement).getPropertyValue('--progress').trim()),
+  );
+
   expect(progress).toBeGreaterThan(0.9);
   expect(progress).toBeLessThanOrEqual(1);
 });

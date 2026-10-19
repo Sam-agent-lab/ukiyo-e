@@ -47,10 +47,16 @@ if (!prefersReducedMotion) {
   render();
 
   // I font e gli asset possono cambiare l'altezza dopo il primo paint.
-  window.addEventListener('load', () => {
+  // Se lo script parte a load gia' avvenuto, il listener non scatterebbe mai.
+  if (document.readyState === 'complete') {
     measure();
     schedule();
-  }, { once: true });
+  } else {
+    window.addEventListener('load', () => {
+      measure();
+      schedule();
+    }, { once: true });
+  }
 
   if ('ResizeObserver' in window) {
     new ResizeObserver(() => {
