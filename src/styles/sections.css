@@ -44,8 +44,7 @@
   --section-bg: var(--c-paper-warm);
   --section-fg: var(--c-ink);
 
-  background-size: 70% 100%, 70% 100%;
-  background-position: left top, left bottom;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
@@ -98,8 +97,12 @@
   text-align: right;
   white-space: nowrap;
   color: inherit;
-  opacity: 0.95;
+  opacity: 1;
   writing-mode: horizontal-tb;
+}
+
+.section--yama .section__romaji {
+  color: var(--c-indigo-deep);
 }
 
 .section__poem {

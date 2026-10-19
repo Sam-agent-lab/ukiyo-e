@@ -13,6 +13,12 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+body > header,
+body > main,
+body > footer {
+  position: relative;
+}
+
 body {
   margin: 0;
   background-color: var(--c-paper);
@@ -48,16 +54,17 @@ svg {
 footer {
   padding: 3rem clamp(1.5rem, 7vw, 7rem) 4.5rem;
   font-size: 0.85rem;
-  color: var(--c-ink);
+  color: var(--c-indigo-deep);
 }
 
 footer a {
-  color: var(--c-vermilion);
+  color: var(--c-indigo);
+  font-weight: 600;
   text-underline-offset: 2px;
 }
 
 footer a:hover {
-  color: var(--c-indigo-deep);
+  color: var(--c-vermilion);
 }
 
 @media (prefers-reduced-motion: reduce) {
