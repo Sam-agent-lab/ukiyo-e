@@ -12,8 +12,10 @@
   pointer-events: none;
 }
 
-[data-testid^="wave-layer"] {
-  will-change: transform;
+@media (prefers-reduced-motion: no-preference) {
+  [data-testid^="wave-layer"] {
+    will-change: transform;
+  }
 }
 
 body > main {
@@ -33,6 +35,5 @@ body > footer {
 @media (prefers-reduced-motion: reduce) {
   .dusk {
     opacity: 0.25;
-    transition: none;
   }
 }

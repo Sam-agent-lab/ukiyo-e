@@ -13,7 +13,7 @@
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 2.5rem clamp(2rem, 6vw, 6rem);
   align-items: start;
-  padding-block: 18vh;
+  padding-block: 18svh;
   padding-inline: clamp(1.5rem, 7vw, 7rem);
   overflow: clip;
   color: var(--section-fg);

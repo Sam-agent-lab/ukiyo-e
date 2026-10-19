@@ -46,6 +46,19 @@ if (!prefersReducedMotion) {
   measure();
   render();
 
+  // I font e gli asset possono cambiare l'altezza dopo il primo paint.
+  window.addEventListener('load', () => {
+    measure();
+    schedule();
+  }, { once: true });
+
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(() => {
+      measure();
+      schedule();
+    }).observe(document.body);
+  }
+
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener(
     'resize',
